@@ -1,7 +1,8 @@
-
 import cfbd
 from cfbd.rest import ApiException
 from pprint import pprint
+import pandas as pd
+
 
 #configure API key
 configuration = cfbd.Configuration()
@@ -15,7 +16,13 @@ year = 56
 try:
     # Betting lines
     api_response = recruiting_api.get_recruiting_teams(year=2023)
+    api_response = [obj.to_dict() for obj in api_response]
     pprint(api_response)
 except ApiException as e:
     print("did not work")
+
+#convert api response to pandas dataframe
+rankings = pd.DataFrame(api_response)
+rankings.to_csv('recruiting_rankings.csv', index=False)
+
 
