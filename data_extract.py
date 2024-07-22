@@ -23,6 +23,7 @@ except ApiException as e:
 
 #convert api response to pandas dataframe
 rankings = pd.DataFrame(api_response)
+rankings.rename(columns={"team":"Team"}, inplace=True)
 rankings.to_csv('recruiting_rankings.csv', index=False)
 
 
