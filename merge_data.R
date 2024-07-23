@@ -4,6 +4,7 @@ cfb_stats = read.csv("cfb23.csv")
 
 cfb_stats = cfb_stats %>%
   separate(Team, into = c("Team", "Conference"), sep = " \\(|\\)", extra = "drop", fill = "right") %>%
+  separate(Win.Loss, into = c('Wins', 'Losses'), sep = '-', extra = "drop", fill = "right") %>%
   filter(Conference %in% c('Big 12', 'SEC', 'Pac-12', 'Big Ten', 'ACC'))
 
 
