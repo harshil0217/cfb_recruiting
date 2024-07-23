@@ -13,9 +13,10 @@ configuration.api_key_prefix['Authorization'] = 'Bearer'
 recruiting_api = cfbd.RecruitingApi(cfbd.ApiClient(configuration))
 year = 56
 
+
 try:
     # Betting lines
-    api_response = recruiting_api.get_recruiting_teams(year=2023)
+    api_response = recruiting_api.get_recruiting_teams()
     api_response = [obj.to_dict() for obj in api_response]
     pprint(api_response)
 except ApiException as e:
@@ -24,6 +25,8 @@ except ApiException as e:
 #convert api response to pandas dataframe
 rankings = pd.DataFrame(api_response)
 rankings.rename(columns={"team":"Team"}, inplace=True)
+rankings = rankings[rankings['year'].isin([2023, 2022, 2021, 2020, 2019])]
 rankings.to_csv('recruiting_rankings.csv', index=False)
+
 
 
