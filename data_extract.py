@@ -24,7 +24,7 @@ except ApiException as e:
 
 #convert api response to pandas dataframe
 rankings = pd.DataFrame(api_response)
-rankings.rename(columns={"team":"Team"}, inplace=True)
+rankings.rename(columns={"team":"Team", "points": "recruiting.points"}, inplace=True)
 rankings = rankings[rankings['year'].isin([2023, 2022, 2021, 2020, 2019])]
 rankings.to_csv('recruiting_rankings.csv', index=False)
 
