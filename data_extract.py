@@ -15,7 +15,6 @@ year = 56
 
 
 try:
-    # Betting lines
     api_response = recruiting_api.get_recruiting_teams()
     api_response = [obj.to_dict() for obj in api_response]
     pprint(api_response)
