@@ -1,0 +1,35 @@
+---
+title: "US24STT180 Group 5 Project"
+authors: "Harshil Chidura, Xuerun Wang, Brianna Matson, Afnan Rahman"
+date: "August 2nd, 2024"
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+  html_document:
+    toc: yes
+    number_sections: no
+    toc_float: yes
+    toc_depth: 4
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE,
+                      comment = NA)
+set.seed(69420)
+```
+
+
+**Setting up:**
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(knitr)
+library(infer)
+```
+
+
+# Introduction
